@@ -127,30 +127,6 @@ const AboutPage: React.FC = () => {
             </p>
           </div>
 
-          {/* Easy to Use */}
-          <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
-            <div className="w-10 h-10 border border-white/20 rounded-lg flex items-center justify-center mb-4">
-              <svg
-                className="w-5 h-5 text-cyan-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                />
-              </svg>
-            </div>
-            <h3 className="text-xl font-bold text-white mb-3">User Friendly</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              No artistic skills required - just describe your vision and let AI
-              do the rest.
-            </p>
-          </div>
-
           {/* Team Section */}
           <div className="lg:col-span-4 backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:bg-white/10 transition-all duration-300">
             <h2 className="text-3xl font-bold text-white mb-4">

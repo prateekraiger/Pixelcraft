@@ -10,9 +10,9 @@ const Footer: React.FC = () => {
             to="/"
             className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
           >
-            <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-600 rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 border border-white/20 rounded-lg flex items-center justify-center">
               <svg
-                className="w-5 h-5 text-white"
+                className="w-5 h-5 text-purple-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

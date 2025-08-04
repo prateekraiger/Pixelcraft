@@ -23,7 +23,7 @@ const PixelArtCanvas: React.FC<PixelArtCanvasProps> = ({
 
   return (
     <div className="w-full max-w-2xl">
-      <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-3xl shadow-2xl p-8 relative overflow-hidden">
+      <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-3xl p-8 relative overflow-hidden hover:bg-white/10 transition-all duration-300">
         {/* Background glow effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-blue-500/5 rounded-3xl"></div>
 
@@ -74,7 +74,7 @@ const PixelArtCanvas: React.FC<PixelArtCanvasProps> = ({
             <div className="aspect-square flex items-center justify-center">
               <div className="text-center text-gray-300 flex flex-col items-center gap-6 max-w-md">
                 <div className="relative">
-                  <div className="w-24 h-24 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-3xl flex items-center justify-center border border-white/10">
+                  <div className="w-24 h-24 border border-white/20 rounded-3xl flex items-center justify-center">
                     <svg
                       className="w-12 h-12 text-purple-400"
                       fill="none"

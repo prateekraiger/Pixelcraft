@@ -28,7 +28,7 @@ const HomePage: React.FC = () => {
             </Link>
             <Link
               to="/about"
-              className="border-2 border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 text-lg"
+              className="backdrop-blur-md bg-white/5 border border-white/10 text-white hover:bg-white/10 font-semibold py-4 px-8 rounded-full transition-all duration-300 text-lg"
             >
               Learn More
             </Link>
@@ -36,16 +36,16 @@ const HomePage: React.FC = () => {
 
           {/* Feature Pills */}
           <div className="flex flex-wrap justify-center gap-3 mb-8">
-            <span className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm text-gray-300 border border-white/20">
+            <span className="px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full text-sm text-gray-300 border border-white/10 hover:bg-white/10 transition-all duration-300">
               ⚡ Instant Generation
             </span>
-            <span className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm text-gray-300 border border-white/20">
+            <span className="px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full text-sm text-gray-300 border border-white/10 hover:bg-white/10 transition-all duration-300">
               🎨 Authentic Pixel Art
             </span>
-            <span className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm text-gray-300 border border-white/20">
+            <span className="px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full text-sm text-gray-300 border border-white/10 hover:bg-white/10 transition-all duration-300">
               🤖 AI Powered
             </span>
-            <span className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm text-gray-300 border border-white/20">
+            <span className="px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full text-sm text-gray-300 border border-white/10 hover:bg-white/10 transition-all duration-300">
               🎮 Retro Style
             </span>
           </div>
@@ -53,10 +53,10 @@ const HomePage: React.FC = () => {
 
         {/* Features Section */}
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-6 text-center hover:bg-white/10 transition-all duration-300">
-            <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+          <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:bg-white/10 transition-all duration-300">
+            <div className="w-16 h-16 border border-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <svg
-                className="w-8 h-8 text-white"
+                className="w-8 h-8 text-purple-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -78,10 +78,10 @@ const HomePage: React.FC = () => {
             </p>
           </div>
 
-          <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-6 text-center hover:bg-white/10 transition-all duration-300">
-            <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+          <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:bg-white/10 transition-all duration-300">
+            <div className="w-16 h-16 border border-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <svg
-                className="w-8 h-8 text-white"
+                className="w-8 h-8 text-pink-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -103,10 +103,10 @@ const HomePage: React.FC = () => {
             </p>
           </div>
 
-          <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-6 text-center hover:bg-white/10 transition-all duration-300">
-            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+          <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:bg-white/10 transition-all duration-300">
+            <div className="w-16 h-16 border border-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <svg
-                className="w-8 h-8 text-white"
+                className="w-8 h-8 text-blue-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

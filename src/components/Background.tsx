@@ -10,27 +10,6 @@ const Background: React.FC = () => {
 
         {/* Subtle animated gradient overlay for depth */}
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-transparent to-blue-500/5 animate-pulse"></div>
-
-        {/* Enhanced floating particles effect */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-purple-300 rounded-full animate-ping opacity-60"></div>
-          <div
-            className="absolute top-3/4 right-1/3 w-1 h-1 bg-blue-300 rounded-full animate-ping opacity-40"
-            style={{ animationDelay: "1s" }}
-          ></div>
-          <div
-            className="absolute top-1/2 left-1/2 w-1.5 h-1.5 bg-indigo-300 rounded-full animate-ping opacity-50"
-            style={{ animationDelay: "2s" }}
-          ></div>
-          <div
-            className="absolute top-1/3 right-1/4 w-1 h-1 bg-violet-300 rounded-full animate-ping opacity-30"
-            style={{ animationDelay: "3s" }}
-          ></div>
-          <div
-            className="absolute top-2/3 left-1/3 w-1.5 h-1.5 bg-purple-400 rounded-full animate-ping opacity-45"
-            style={{ animationDelay: "4s" }}
-          ></div>
-        </div>
       </div>
     </div>
   );

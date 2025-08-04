@@ -5,16 +5,16 @@ const Navbar: React.FC = () => {
   const location = useLocation();
 
   return (
-    <nav className="fixed top-0 left-0 w-screen z-50 backdrop-blur-md bg-white/10 border-b border-white/20">
+    <nav className="fixed top-0 left-0 w-screen z-50 backdrop-blur-md bg-white/5 border-b border-white/10">
       <div className="w-full px-6 py-4">
         <div className="flex justify-between items-center w-full">
           <Link
             to="/"
             className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
           >
-            <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+            <div className="w-10 h-10 border border-white/20 rounded-xl flex items-center justify-center">
               <svg
-                className="w-6 h-6 text-white"
+                className="w-6 h-6 text-purple-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

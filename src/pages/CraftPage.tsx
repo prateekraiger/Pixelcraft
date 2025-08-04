@@ -53,11 +53,11 @@ const CraftPage: React.FC = () => {
         {/* Left Panel - Input and History */}
         <div className="w-full lg:w-1/2 flex flex-col items-center space-y-8">
           {/* Input Card */}
-          <div className="w-full max-w-lg backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-2xl p-8">
+          <div className="w-full max-w-lg backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300">
             <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+              <div className="w-16 h-16 border border-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <svg
-                  className="w-8 h-8 text-white"
+                  className="w-8 h-8 text-purple-400"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -126,7 +126,7 @@ const CraftPage: React.FC = () => {
 
           {/* History Card */}
           {artHistory.length > 0 && (
-            <div className="w-full max-w-lg backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-2xl p-8">
+            <div className="w-full max-w-lg backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300">
               <div className="text-center mb-6">
                 <h2 className="text-2xl font-bold text-white mb-2">
                   Recent Creations
