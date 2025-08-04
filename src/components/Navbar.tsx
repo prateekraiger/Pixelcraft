@@ -59,10 +59,10 @@ const Navbar: React.FC = () => {
               About
             </Link>
             <Link
-              to="/"
+              to="/craft"
               className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-2 px-6 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl"
             >
-              Get Started
+              Start Crafting
             </Link>
           </div>
         </div>

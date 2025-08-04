@@ -1,54 +1,7 @@
-import React, { useState } from "react";
-import PixelArtCanvas from "../components/PixelArtCanvas";
-import { generatePixelArt } from "../services/geminiService";
+import React from "react";
+import { Link } from "react-router-dom";
 
-interface HomePageProps {
-  imageUrl: string | null;
-  isLoading: boolean;
-  setImageUrl: (url: string | null) => void;
-  setIsLoading: (loading: boolean) => void;
-  errorMessage: string | null;
-  setErrorMessage: (message: string | null) => void;
-}
-
-const HomePage: React.FC<HomePageProps> = ({
-  imageUrl,
-  isLoading,
-  setImageUrl,
-  setIsLoading,
-  errorMessage,
-  setErrorMessage,
-}) => {
-  const [prompt, setPrompt] = useState("");
-  const [artHistory, setArtHistory] = useState<string[]>([]);
-
-  const handleGenerate = async () => {
-    if (!prompt) {
-      setErrorMessage("Please enter a prompt.");
-      return;
-    }
-    setIsLoading(true);
-    setErrorMessage(null); // Clear previous errors
-    try {
-      const generatedImageUrl = await generatePixelArt(prompt);
-      setImageUrl(generatedImageUrl);
-      if (generatedImageUrl) {
-        setArtHistory((prevHistory) =>
-          [generatedImageUrl, ...prevHistory].slice(0, 5)
-        ); // Keep last 5 images
-      }
-    } catch (error) {
-      console.error("Error generating pixel art:", error);
-      setErrorMessage("Failed to generate pixel art. Please try again.");
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleHistoryClick = (url: string) => {
-    setImageUrl(url);
-  };
-
+const HomePage: React.FC = () => {
   return (
     <div className="container mx-auto px-6 py-8">
       {/* Hero Section */}
@@ -67,19 +20,18 @@ const HomePage: React.FC<HomePageProps> = ({
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <button
-              onClick={() =>
-                document
-                  .getElementById("generator")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
+            <Link
+              to="/craft"
               className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl text-lg"
             >
               Start Creating Now
-            </button>
-            <button className="border-2 border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 text-lg">
-              View Examples
-            </button>
+            </Link>
+            <Link
+              to="/about"
+              className="border-2 border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 text-lg"
+            >
+              Learn More
+            </Link>
           </div>
 
           {/* Feature Pills */}
@@ -98,124 +50,81 @@ const HomePage: React.FC<HomePageProps> = ({
             </span>
           </div>
         </div>
-      </div>
 
-      <div
-        id="generator"
-        className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 max-w-7xl mx-auto"
-      >
-        {/* Left Panel - Input and History */}
-        <div className="w-full lg:w-1/2 flex flex-col items-center space-y-8">
-          {/* Input Card */}
-          <div className="w-full max-w-lg backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-2xl p-8">
-            <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                  />
-                </svg>
-              </div>
-              <h2 className="text-2xl font-bold text-white mb-2">
-                Generate Pixel Art
-              </h2>
-              <p className="text-gray-300 text-sm">
-                Describe your vision and watch it come to life
-              </p>
+        {/* Features Section */}
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-6 text-center hover:bg-white/10 transition-all duration-300">
+            <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+              <svg
+                className="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
+              </svg>
             </div>
-
-            <textarea
-              value={prompt}
-              onChange={(e) => setPrompt(e.target.value)}
-              placeholder="Enter a prompt for your pixel art... (e.g., 'a futuristic city skyline with neon lights')"
-              className="w-full p-4 border border-white/20 rounded-xl bg-white/5 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 h-32 resize-none backdrop-blur-sm"
-            ></textarea>
-
-            <button
-              onClick={handleGenerate}
-              disabled={isLoading}
-              className="w-full mt-6 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-            >
-              {isLoading ? (
-                <div className="flex items-center justify-center space-x-2">
-                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                  <span>Generating...</span>
-                </div>
-              ) : (
-                <div className="flex items-center justify-center space-x-2">
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
-                  </svg>
-                  <span>Create Pixel Art</span>
-                </div>
-              )}
-            </button>
-
-            {errorMessage && (
-              <div className="mt-4 p-4 bg-red-500/10 border border-red-500/20 rounded-xl">
-                <p className="text-red-400 text-center text-sm">
-                  {errorMessage}
-                </p>
-              </div>
-            )}
+            <h3 className="text-2xl font-bold text-white mb-4">
+              Instant Creation
+            </h3>
+            <p className="text-gray-300 leading-relaxed">
+              Generate stunning pixel art in seconds with just a text prompt. No
+              artistic skills required.
+            </p>
           </div>
 
-          {/* History Card */}
-          {artHistory.length > 0 && (
-            <div className="w-full max-w-lg backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-2xl p-8">
-              <div className="text-center mb-6">
-                <h2 className="text-2xl font-bold text-white mb-2">
-                  Recent Creations
-                </h2>
-                <p className="text-gray-300 text-sm">
-                  Your latest pixel art masterpieces
-                </p>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                {artHistory.map((artUrl, index) => (
-                  <div
-                    key={index}
-                    className="relative cursor-pointer rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl group"
-                    onClick={() => handleHistoryClick(artUrl)}
-                  >
-                    <img
-                      src={artUrl}
-                      alt={`Pixel Art ${index + 1}`}
-                      className="w-full h-24 object-cover pixelated"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-2">
-                      <span className="text-white text-xs font-semibold">
-                        View
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+          <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-6 text-center hover:bg-white/10 transition-all duration-300">
+            <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+              <svg
+                className="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.5l1.5-1.5 1.5 1.5m-1.5-1.5V12"
+                />
+              </svg>
             </div>
-          )}
-        </div>
+            <h3 className="text-2xl font-bold text-white mb-4">
+              Authentic Style
+            </h3>
+            <p className="text-gray-300 leading-relaxed">
+              Maintains true pixel art aesthetics with proper scaling and retro
+              color palettes.
+            </p>
+          </div>
 
-        {/* Right Panel - Canvas */}
-        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-          <PixelArtCanvas imageUrl={imageUrl} isLoading={isLoading} />
+          <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-6 text-center hover:bg-white/10 transition-all duration-300">
+            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+              <svg
+                className="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-4">AI Powered</h3>
+            <p className="text-gray-300 leading-relaxed">
+              Advanced AI algorithms understand pixel art nuances and creative
+              vision.
+            </p>
+          </div>
         </div>
       </div>
     </div>
