@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
             </div>
             <div>
               <h3 className="text-lg font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                MosaicMind
+                Pixelcraft
               </h3>
               <p className="text-xs text-gray-400">AI Pixel Art Generator</p>
             </div>
@@ -62,10 +62,7 @@ const Footer: React.FC = () => {
 
           <div className="text-center md:text-right">
             <p className="text-gray-400 text-sm">
-              &copy; {new Date().getFullYear()} MosaicMind. All rights reserved.
-            </p>
-            <p className="text-gray-500 text-xs mt-1">
-              Powered by AI • Built with ❤️
+              &copy; {new Date().getFullYear()} Pixelcraft. All rights reserved.
             </p>
           </div>
         </div>

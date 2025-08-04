@@ -6,7 +6,7 @@ const AboutPage: React.FC = () => {
       {/* Hero Section */}
       <div className="text-center mb-16">
         <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-          About MosaicMind
+          About Pixelcraft
         </h1>
         <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
           Discover the story behind the AI-powered pixel art revolution
@@ -35,7 +35,7 @@ const AboutPage: React.FC = () => {
             <h2 className="text-3xl font-bold text-white mb-4">Our Mission</h2>
             <p className="text-gray-300 leading-relaxed">
               We believe that creativity should be accessible to everyone.
-              MosaicMind democratizes pixel art creation by combining the
+              Pixelcraft democratizes pixel art creation by combining the
               nostalgic charm of retro gaming aesthetics with cutting-edge AI
               technology.
             </p>
@@ -70,7 +70,7 @@ const AboutPage: React.FC = () => {
         {/* Features Grid */}
         <div className="mb-20">
           <h2 className="text-4xl font-bold text-center text-white mb-12">
-            Why Choose MosaicMind?
+            Why Choose Pixelcraft?
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-6 text-center hover:bg-white/10 transition-all duration-300">
@@ -155,7 +155,7 @@ const AboutPage: React.FC = () => {
             Built with Passion
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-            MosaicMind is crafted by a team of AI enthusiasts, game developers,
+            Pixelcraft is crafted by a team of AI enthusiasts, game developers,
             and pixel art lovers who understand the magic of retro aesthetics
             and modern technology.
           </p>
